@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>One Last Message</title>
+
+    <title>A Quiet Goodbye</title>
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -15,157 +17,234 @@
 
         body {
             min-height: 100vh;
-            background: linear-gradient(135deg, #eeeeee, #d6d6d6);
-            color: #333;
+            background: #eeeeee;
+            color: #444;
+
             display: flex;
             justify-content: center;
             align-items: center;
+
             padding: 20px;
         }
 
         .container {
             width: 100%;
-            max-width: 850px;
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(12px);
-            border-radius: 25px;
-            padding: 45px 30px;
+            max-width: 800px;
+
+            background: #ffffff;
+
+            border-radius: 18px;
+
+            padding: 45px 35px;
+
             text-align: center;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .symbol {
+            font-size: 38px;
+            color: #888;
+            margin-bottom: 18px;
         }
 
         h1 {
-            font-size: 42px;
-            margin-bottom: 15px;
+            font-size: 38px;
+            font-weight: 400;
             color: #333;
+            margin-bottom: 12px;
         }
 
         .subtitle {
-            font-size: 18px;
-            color: #666;
+            color: #777;
+            font-size: 16px;
+            line-height: 1.7;
             margin-bottom: 35px;
-        }
-
-        .heart {
-            font-size: 55px;
-            margin-bottom: 20px;
-            animation: heartbeat 1.5s infinite;
-        }
-
-        @keyframes heartbeat {
-            0%, 100% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.15);
-            }
         }
 
         .buttons {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 15px;
-            margin-bottom: 30px;
+            gap: 12px;
         }
 
         button {
-            border: none;
-            padding: 14px 24px;
-            border-radius: 30px;
-            background: #555;
-            color: white;
-            font-size: 16px;
+            border: 1px solid #bdbdbd;
+
+            background: #f7f7f7;
+
+            color: #555;
+
+            padding: 12px 22px;
+
+            border-radius: 25px;
+
+            font-size: 15px;
+
             cursor: pointer;
+
             transition: 0.3s ease;
         }
 
         button:hover {
-            background: #333;
-            transform: translateY(-3px);
+            background: #e5e5e5;
         }
 
-        .hidden-section {
+        .section {
             display: none;
-            margin-top: 25px;
+
+            margin-top: 30px;
+
             padding: 30px;
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.65);
+
+            background: #f8f8f8;
+
+            border-radius: 15px;
+
             text-align: left;
-            animation: fadeIn 0.8s ease;
+
+            animation: appear 0.5s ease;
         }
 
-        .hidden-section h2 {
+        .section h2 {
             text-align: center;
-            margin-bottom: 20px;
-            color: #444;
+
+            font-weight: 400;
+
+            color: #333;
+
+            margin-bottom: 22px;
         }
 
-        .hidden-section p {
-            font-size: 17px;
+        .section p {
+            font-size: 16px;
+
             line-height: 1.8;
+
+            color: #555;
+
             margin-bottom: 15px;
         }
 
-        .memory-box {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 15px;
+        .date-box {
             margin-top: 20px;
+
+            padding: 20px;
+
+            background: #ffffff;
+
+            border-left: 3px solid #999;
+
+            border-radius: 8px;
         }
 
-        .memory-box img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            border-radius: 15px;
+        .date-box p {
+            margin-bottom: 8px;
         }
 
-        .final-message {
+        .question {
             text-align: center;
-            font-size: 19px;
+
+            margin-top: 40px;
+
+            padding-top: 30px;
+
+            border-top: 1px solid #ddd;
+        }
+
+        .question h3 {
+            font-weight: 400;
+
+            margin-bottom: 15px;
+
+            color: #444;
+        }
+
+        .choice-buttons {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 12px;
+
+            flex-wrap: wrap;
+        }
+
+        .choice-buttons button {
+            min-width: 100px;
+        }
+
+        .response {
+            display: none;
+
+            margin-top: 20px;
+
+            padding: 20px;
+
+            background: #ffffff;
+
+            border-radius: 10px;
+
+            text-align: center;
+
             line-height: 1.8;
+
+            color: #555;
+
+            animation: appear 0.5s ease;
         }
 
         .signature {
-            margin-top: 25px;
             text-align: right;
+
+            margin-top: 25px;
+
+            color: #777;
+
             font-style: italic;
-            color: #666;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(15px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         footer {
             margin-top: 35px;
-            color: #777;
-            font-size: 14px;
+
+            font-size: 13px;
+
+            color: #999;
+        }
+
+        @keyframes appear {
+
+            from {
+                opacity: 0;
+
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+
+                transform: translateY(0);
+            }
+
         }
 
         @media (max-width: 600px) {
-            h1 {
-                font-size: 32px;
-            }
 
             .container {
-                padding: 30px 20px;
+                padding: 35px 20px;
             }
 
-            .hidden-section {
-                padding: 20px;
+            h1 {
+                font-size: 30px;
             }
+
+            .section {
+                padding: 22px;
+            }
+
         }
+
     </style>
 </head>
 
@@ -173,14 +252,20 @@
 
     <div class="container">
 
-        <div class="heart">🤍</div>
+        <div class="symbol">—</div>
 
-        <h1>One Last Message</h1>
+        <h1>A Quiet Goodbye</h1>
 
         <p class="subtitle">
-            Not to change anything. Not to ask for anything.
-            Just to say goodbye properly.
+
+            This isn't meant to change your mind.
+            <br>
+
+            I just wanted to leave something honest,
+            calm, and respectful.
+
         </p>
+
 
         <div class="buttons">
 
@@ -188,11 +273,7 @@
                 Our Story
             </button>
 
-            <button onclick="showSection('memories')">
-                The Memories
-            </button>
-
-            <button onclick="showSection('message')">
+            <button onclick="showSection('goodbye')">
                 My Goodbye
             </button>
 
@@ -201,110 +282,305 @@
 
         <!-- OUR STORY -->
 
-        <div id="story" class="hidden-section">
+        <div id="story" class="section">
 
-            <h2>What We Had</h2>
+            <h2>What We Shared</h2>
 
             <p>
-                We may not have ended the way we once imagined,
-                but that does not erase everything we shared.
+
+                Whatever happened between us, I don't want to remember
+                it only through the difficult moments.
+
             </p>
 
             <p>
-                There were conversations, laughs, moments, and memories
-                that meant something to me. For a while, you were an important
-                part of my life, and I will always respect that.
+
+                We shared conversations, moments, laughter, and memories
+                that were once important to both of us.
+
             </p>
 
             <p>
-                Maybe people sometimes come into our lives for a season,
-                teach us something, give us memories, and eventually
-                we have to learn how to let them go.
+
+                Maybe not every story is meant to last forever.
+                But that doesn't mean the story was meaningless.
+
+            </p>
+
+            <p>
+
+                I will always respect the time we had together
+                and the person you were in my life.
+
             </p>
 
         </div>
 
 
-        <!-- MEMORIES -->
+        <!-- GOODBYE -->
 
-        <div id="memories" class="hidden-section">
-
-            <h2>Some Memories</h2>
-
-            <p>
-                I don't want to remember everything with anger or regret.
-                I would rather remember the good moments for what they were.
-            </p>
-
-            <div class="memory-box">
-
-                <!-- Replace these image names with your own photos -->
-
-                <img src="photo1.jpg" alt="Memory 1">
-
-                <img src="photo2.jpg" alt="Memory 2">
-
-                <img src="photo3.jpg" alt="Memory 3">
-
-            </div>
-
-        </div>
-
-
-        <!-- GOODBYE MESSAGE -->
-
-        <div id="message" class="hidden-section">
+        <div id="goodbye" class="section">
 
             <h2>My Goodbye</h2>
 
-            <div class="final-message">
+            <p>
 
-                <p>
-                    I want to say thank you.
-                </p>
+                I don't want to leave with anger.
 
-                <p>
-                    Thank you for the moments we shared, for the memories,
-                    for the lessons, and for being a part of my life.
-                </p>
+            </p>
 
-                <p>
-                    I don't want this message to be about blame.
-                    I don't want to hold onto anger or force something
-                    that is no longer meant to be.
-                </p>
+            <p>
 
-                <p>
-                    I respect you, and I respect the path you choose.
-                    Even though saying goodbye is not easy, sometimes
-                    caring about someone also means learning to let go.
-                </p>
+                I don't want to blame you or make you feel guilty.
 
-                <p>
-                    I genuinely hope life treats you well.
-                    I hope you find happiness, peace, and everything
-                    you are looking for.
-                </p>
+            </p>
 
-                <p>
-                    I will always appreciate the part of my life
-                    that we shared.
-                </p>
+            <p>
 
-                <p>
-                    This is not me asking you to come back.
-                    This is not me trying to change your mind.
-                </p>
+                I just want to say that what we had mattered to me.
 
-                <p>
-                    It is simply me saying goodbye...
-                    with respect.
-                </p>
+            </p>
 
-                <div class="signature">
-                    Take care of yourself.<br>
-                    — From someone who once truly cared
+            <p>
+
+                Thank you for the good moments.
+                Thank you for the memories.
+                Thank you for the time we shared.
+
+            </p>
+
+            <p>
+
+                I understand that people change,
+                feelings change, and sometimes life takes people
+                in different directions.
+
+            </p>
+
+            <p>
+
+                I respect your choices,
+                even if they are difficult for me to accept.
+
+            </p>
+
+            <p>
+
+                I hope you find peace.
+                I hope you find happiness.
+                And I hope life is kind to you.
+
+            </p>
+
+            <p>
+
+                This isn't me asking you for anything.
+
+            </p>
+
+            <p>
+
+                It's just me saying goodbye
+                in the most respectful way I can.
+
+            </p>
+
+
+            <!-- MEMORY QUESTION -->
+
+            <div class="question">
+
+                <h3>
+                    Do you want to remember what we had?
+                </h3>
+
+                <div class="choice-buttons">
+
+                    <button onclick="showMemory('yes')">
+                        Yes
+                    </button>
+
+                    <button onclick="showMemory('no')">
+                        No
+                    </button>
+
                 </div>
+
+
+                <div id="memoryYes" class="response">
+
+                    <p>
+
+                        Then I hope you remember the good moments too.
+
+                    </p>
+
+                    <div class="date-box">
+
+                        <p>
+                            <strong>Our Beginning</strong>
+                        </p>
+
+                        <p>
+                            📅 Add your special date here
+                        </p>
+
+                    </div>
+
+                    <div class="date-box">
+
+                        <p>
+                            <strong>A Special Memory</strong>
+                        </p>
+
+                        <p>
+                            📅 Add another important date here
+                        </p>
+
+                    </div>
+
+                    <div class="date-box">
+
+                        <p>
+                            <strong>Another Moment</strong>
+                        </p>
+
+                        <p>
+                            📅 Add another date or memory here
+                        </p>
+
+                    </div>
+
+                    <p style="margin-top: 20px;">
+
+                        Whatever happens next,
+                        I will always appreciate that these moments
+                        were once a part of our lives.
+
+                    </p>
+
+                </div>
+
+
+                <div id="memoryNo" class="response">
+
+                    <p>
+
+                        I understand.
+
+                    </p>
+
+                    <p>
+
+                        You don't have to remember anything
+                        you don't want to.
+
+                    </p>
+
+                    <p>
+
+                        I respect your choice,
+                        and I won't hold that against you.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- COMEBACK QUESTION -->
+
+            <div class="question">
+
+                <h3>
+                    Do you want to come back?
+                </h3>
+
+                <div class="choice-buttons">
+
+                    <button onclick="showComeback('yes')">
+                        Yes
+                    </button>
+
+                    <button onclick="showComeback('no')">
+                        No
+                    </button>
+
+                </div>
+
+
+                <div id="comeBackYes" class="response">
+
+                    <p>
+
+                        If you truly want to come back,
+                        I am still willing to talk.
+
+                    </p>
+
+                    <p>
+
+                        I am not expecting everything to become perfect
+                        immediately.
+
+                    </p>
+
+                    <p>
+
+                        But if you genuinely want to try again,
+                        I am here.
+
+                    </p>
+
+                    <p>
+
+                        I am waiting.
+
+                    </p>
+
+                </div>
+
+
+                <div id="comeBackNo" class="response">
+
+                    <p>
+
+                        I understand.
+
+                    </p>
+
+                    <p>
+
+                        I may not like the answer,
+                        but I respect it.
+
+                    </p>
+
+                    <p>
+
+                        I won't force you to stay
+                        where you no longer want to be.
+
+                    </p>
+
+                    <p>
+
+                        I wish you the best,
+                        genuinely.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="signature">
+
+                Take care of yourself.<br>
+
+                — From someone who truly cared
 
             </div>
 
@@ -312,7 +588,10 @@
 
 
         <footer>
-            Some chapters end quietly. That doesn't mean they were meaningless.
+
+            Some chapters end quietly.
+            That doesn't mean they were meaningless.
+
         </footer>
 
     </div>
@@ -322,23 +601,84 @@
 
         function showSection(sectionId) {
 
-            const sections = document.querySelectorAll(".hidden-section");
+            const sections =
+                document.querySelectorAll(".section");
 
             sections.forEach(section => {
+
                 section.style.display = "none";
+
             });
 
-            const selectedSection = document.getElementById(sectionId);
+            const selectedSection =
+                document.getElementById(sectionId);
 
             selectedSection.style.display = "block";
 
             selectedSection.scrollIntoView({
+
                 behavior: "smooth",
+
                 block: "center"
+
             });
+
+        }
+
+
+        function showMemory(answer) {
+
+            document.getElementById("memoryYes")
+                .style.display = "none";
+
+            document.getElementById("memoryNo")
+                .style.display = "none";
+
+
+            if (answer === "yes") {
+
+                document.getElementById("memoryYes")
+                    .style.display = "block";
+
+            }
+
+            else {
+
+                document.getElementById("memoryNo")
+                    .style.display = "block";
+
+            }
+
+        }
+
+
+        function showComeback(answer) {
+
+            document.getElementById("comeBackYes")
+                .style.display = "none";
+
+            document.getElementById("comeBackNo")
+                .style.display = "none";
+
+
+            if (answer === "yes") {
+
+                document.getElementById("comeBackYes")
+                    .style.display = "block";
+
+            }
+
+            else {
+
+                document.getElementById("comeBackNo")
+                    .style.display = "block";
+
+            }
+
         }
 
     </script>
 
 </body>
+
 </html>

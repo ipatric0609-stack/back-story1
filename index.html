@@ -65,7 +65,8 @@
         margin-bottom: 35px;
     }
 
-    .buttons {
+    .buttons,
+    .choice-buttons {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
@@ -160,16 +161,6 @@
         margin-bottom: 15px;
 
         color: #444;
-    }
-
-    .choice-buttons {
-        display: flex;
-
-        justify-content: center;
-
-        gap: 12px;
-
-        flex-wrap: wrap;
     }
 
     .choice-buttons button {
@@ -272,13 +263,11 @@
 
         from {
             opacity: 0;
-
             transform: translateY(10px);
         }
 
         to {
             opacity: 1;
-
             transform: translateY(0);
         }
 
@@ -490,8 +479,12 @@
                     <p>
                         Though you may not love that day,
                         I do. It was my first Valentine's Day
-                        and one of my happiest moments. <p> The shorm days too naza narazikundaga
-                    </p></p>
+                        and one of my happiest moments.
+                    </p>
+
+                    <p>
+                        The short days too, naza narazikundaga.
+                    </p>
 
                 </div>
 
@@ -593,9 +586,26 @@
             </div>
 
 
-            <!-- REASON TEXT BOX -->
+            <!-- REASON BOX -->
 
-           
+            <div id="reasonBox" class="reason-box">
+
+                <p>
+                    If you want to, you can tell me why you chose your answer.
+                </p>
+
+                <textarea
+                    id="reasonText"
+                    placeholder="Write your reason here..."
+                ></textarea>
+
+                <button onclick="submitReason()">
+                    Send My Answer
+                </button>
+
+                <p id="reasonSent" class="reason-sent"></p>
+
+            </div>
 
 
             <!-- YES RESPONSE -->
@@ -656,19 +666,27 @@
 
         <div class="signature">
 
-            Take care of yourself. I LOVE YOU AND ALWAYS WILL.
+            Take care of yourself.
+            I LOVE YOU AND ALWAYS WILL.
+
             <br>
 
             — From someone who truly cared ZIRIWA
-ZIEM
+
+            <br>
+
+            ZIEM
+
         </div>
 
     </div>
 
 
     <footer>
+
         Some goodbyes are not about forgetting.
         Sometimes they are about appreciating what once was.
+
     </footer>
 
 </div>
@@ -683,7 +701,9 @@ ZIEM
         const sections = document.querySelectorAll(".section");
 
         sections.forEach(function(section) {
+
             section.style.display = "none";
+
         });
 
         const selectedSection = document.getElementById(sectionId);
@@ -691,8 +711,11 @@ ZIEM
         selectedSection.style.display = "block";
 
         selectedSection.scrollIntoView({
+
             behavior: "smooth",
+
             block: "start"
+
         });
 
     }
@@ -708,7 +731,9 @@ ZIEM
 
             document.getElementById("memoryYes").style.display = "block";
 
-        } else {
+        }
+
+        else {
 
             document.getElementById("memoryNo").style.display = "block";
 
@@ -729,7 +754,9 @@ ZIEM
 
             document.getElementById("comeBackYes").style.display = "block";
 
-        } else {
+        }
+
+        else {
 
             document.getElementById("comeBackNo").style.display = "block";
 
@@ -740,16 +767,21 @@ ZIEM
 
     function submitReason() {
 
-        const reason = document.getElementById("reasonText").value.trim();
+        const reason =
+            document.getElementById("reasonText").value.trim();
 
-        const reasonSent = document.getElementById("reasonSent");
+        const reasonSent =
+            document.getElementById("reasonSent");
 
 
         if (reason === "") {
 
-            reasonSent.textContent = "You can write something first if you want to.";
+            reasonSent.textContent =
+                "You can write something first if you want to.";
 
-        } else {
+        }
+
+        else {
 
             reasonSent.textContent =
                 "Thank you for being honest and sharing your reason.";

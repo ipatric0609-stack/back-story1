@@ -1,626 +1,782 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>A Quiet Goodbye To you EMELYNE</title>
+```
+<title>A Quiet Goodbye To You, EMELYNE</title>
 
-    <style>
+<style>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Segoe UI", sans-serif;
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+        min-height: 100vh;
+        background: #eeeeee;
+        color: #444;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        padding: 20px;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 800px;
+
+        background: #ffffff;
+
+        border-radius: 18px;
+
+        padding: 45px 35px;
+
+        text-align: center;
+
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    .symbol {
+        font-size: 38px;
+        color: #888;
+        margin-bottom: 18px;
+    }
+
+    h1 {
+        font-size: 38px;
+        font-weight: 400;
+        color: #333;
+        margin-bottom: 12px;
+    }
+
+    .subtitle {
+        color: #777;
+        font-size: 16px;
+        line-height: 1.7;
+        margin-bottom: 35px;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    button {
+        border: 1px solid #bdbdbd;
+        background: #f7f7f7;
+        color: #555;
+
+        padding: 12px 22px;
+
+        border-radius: 25px;
+
+        font-size: 15px;
+
+        cursor: pointer;
+
+        transition: 0.3s ease;
+    }
+
+    button:hover {
+        background: #e5e5e5;
+    }
+
+    .section {
+        display: none;
+
+        margin-top: 30px;
+
+        padding: 30px;
+
+        background: #f8f8f8;
+
+        border-radius: 15px;
+
+        text-align: left;
+
+        animation: appear 0.5s ease;
+    }
+
+    .section h2 {
+        text-align: center;
+
+        font-weight: 400;
+
+        color: #333;
+
+        margin-bottom: 22px;
+    }
+
+    .section p {
+        font-size: 16px;
+
+        line-height: 1.8;
+
+        color: #555;
+
+        margin-bottom: 15px;
+    }
+
+    .date-box {
+        margin-top: 20px;
+
+        padding: 20px;
+
+        background: #ffffff;
+
+        border-left: 3px solid #999;
+
+        border-radius: 8px;
+    }
+
+    .date-box p {
+        margin-bottom: 8px;
+    }
+
+    .question {
+        text-align: center;
+
+        margin-top: 40px;
+
+        padding-top: 30px;
+
+        border-top: 1px solid #ddd;
+    }
+
+    .question h3 {
+        font-weight: 400;
+
+        margin-bottom: 15px;
+
+        color: #444;
+    }
+
+    .choice-buttons {
+        display: flex;
+
+        justify-content: center;
+
+        gap: 12px;
+
+        flex-wrap: wrap;
+    }
+
+    .choice-buttons button {
+        min-width: 100px;
+    }
+
+    .response {
+        display: none;
+
+        margin-top: 20px;
+
+        padding: 20px;
+
+        background: #ffffff;
+
+        border-radius: 10px;
+
+        text-align: center;
+
+        line-height: 1.8;
+
+        color: #555;
+
+        animation: appear 0.5s ease;
+    }
+
+    .reason-box {
+        display: none;
+
+        margin-top: 20px;
+
+        padding: 20px;
+
+        background: #ffffff;
+
+        border-radius: 10px;
+
+        text-align: left;
+    }
+
+    .reason-box p {
+        margin-bottom: 12px;
+    }
+
+    textarea {
+        width: 100%;
+
+        min-height: 120px;
+
+        padding: 12px;
+
+        border: 1px solid #ccc;
+
+        border-radius: 8px;
+
+        resize: vertical;
+
+        font-family: inherit;
+
+        font-size: 15px;
+
+        outline: none;
+    }
+
+    textarea:focus {
+        border-color: #888;
+    }
+
+    .reason-box button {
+        margin-top: 12px;
+    }
+
+    .reason-sent {
+        margin-top: 12px;
+
+        color: #777;
+
+        font-style: italic;
+    }
+
+    .signature {
+        text-align: right;
+
+        margin-top: 25px;
+
+        color: #777;
+
+        font-style: italic;
+    }
+
+    footer {
+        margin-top: 35px;
+
+        font-size: 13px;
+
+        color: #999;
+    }
+
+    @keyframes appear {
+
+        from {
+            opacity: 0;
+
+            transform: translateY(10px);
         }
 
-        body {
-            min-height: 100vh;
-            background: #eeeeee;
-            color: #444;
+        to {
+            opacity: 1;
 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            padding: 20px;
+            transform: translateY(0);
         }
+
+    }
+
+    @media (max-width: 600px) {
 
         .container {
-            width: 100%;
-            max-width: 800px;
-
-            background: #ffffff;
-
-            border-radius: 18px;
-
-            padding: 45px 35px;
-
-            text-align: center;
-
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-        }
-
-        .symbol {
-            font-size: 38px;
-            color: #888;
-            margin-bottom: 18px;
+            padding: 35px 20px;
         }
 
         h1 {
-            font-size: 38px;
-            font-weight: 400;
-            color: #333;
-            margin-bottom: 12px;
-        }
-
-        .subtitle {
-            color: #777;
-            font-size: 16px;
-            line-height: 1.7;
-            margin-bottom: 35px;
-        }
-
-        .buttons {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        button {
-            border: 1px solid #bdbdbd;
-
-            background: #f7f7f7;
-
-            color: #555;
-
-            padding: 12px 22px;
-
-            border-radius: 25px;
-
-            font-size: 15px;
-
-            cursor: pointer;
-
-            transition: 0.3s ease;
-        }
-
-        button:hover {
-            background: #e5e5e5;
+            font-size: 30px;
         }
 
         .section {
-            display: none;
-
-            margin-top: 30px;
-
-            padding: 30px;
-
-            background: #f8f8f8;
-
-            border-radius: 15px;
-
-            text-align: left;
-
-            animation: appear 0.5s ease;
+            padding: 22px;
         }
 
-        .section h2 {
-            text-align: center;
+    }
 
-            font-weight: 400;
+</style>
+```
 
-            color: #333;
-
-            margin-bottom: 22px;
-        }
-
-        .section p {
-            font-size: 16px;
-
-            line-height: 1.8;
-
-            color: #555;
-
-            margin-bottom: 15px;
-        }
-
-        .date-box {
-            margin-top: 20px;
-
-            padding: 20px;
-
-            background: #ffffff;
-
-            border-left: 3px solid #999;
-
-            border-radius: 8px;
-        }
-
-        .date-box p {
-            margin-bottom: 8px;
-        }
-
-        .question {
-            text-align: center;
-
-            margin-top: 40px;
-
-            padding-top: 30px;
-
-            border-top: 1px solid #ddd;
-        }
-
-        .question h3 {
-            font-weight: 400;
-
-            margin-bottom: 15px;
-
-            color: #444;
-        }
-
-        .choice-buttons {
-            display: flex;
-
-            justify-content: center;
-
-            gap: 12px;
-
-            flex-wrap: wrap;
-        }
-
-        .choice-buttons button {
-            min-width: 100px;
-        }
-
-        .response {
-            display: none;
-
-            margin-top: 20px;
-
-            padding: 20px;
-
-            background: #ffffff;
-
-            border-radius: 10px;
-
-            text-align: center;
-
-            line-height: 1.8;
-
-            color: #555;
-
-            animation: appear 0.5s ease;
-        }
-
-        .signature {
-            text-align: right;
-
-            margin-top: 25px;
-
-            color: #777;
-
-            font-style: italic;
-        }
-
-        footer {
-            margin-top: 35px;
-
-            font-size: 13px;
-
-            color: #999;
-        }
-
-        @keyframes appear {
-
-            from {
-                opacity: 0;
-
-                transform: translateY(10px);
-            }
-
-            to {
-                opacity: 1;
-
-                transform: translateY(0);
-            }
-
-        }
-
-        @media (max-width: 600px) {
-
-            .container {
-                padding: 35px 20px;
-            }
-
-            h1 {
-                font-size: 30px;
-            }
-
-            .section {
-                padding: 22px;
-            }
-
-        }
-
-    </style>
 </head>
 
 <body>
 
-    <div class="container">
+```
+<div class="container">
 
-        <div class="symbol">—</div>
+    <div class="symbol">—</div>
 
-        <h1>A Quiet Goodbye To you EMELYNE</h1>
+    <h1>A Quiet Goodbye To You, EMELYNE</h1>
 
-        <p class="subtitle">
+    <p class="subtitle">
+        This isn't meant to change your mind.
+        <br>
+        I just wanted to leave something honest, calm, and respectful.
+    </p>
 
-            This isn't meant to change your mind.
-            <br>
 
-            I just wanted to leave something honest,
-            calm, and respectful.
+    <!-- MAIN BUTTONS -->
 
+    <div class="buttons">
+
+        <button onclick="showSection('story')">
+            Our Story
+        </button>
+
+        <button onclick="showSection('goodbye')">
+            My Goodbye
+        </button>
+
+    </div>
+
+
+    <!-- OUR STORY -->
+
+    <div id="story" class="section">
+
+        <h2>What We Shared</h2>
+
+        <p>
+            Whatever happened between us, I don't want to remember
+            it only through the difficult moments.
+        </p>
+
+        <p>
+            We shared conversations, moments, laughter, and memories
+            that were once important to both of us.
+        </p>
+
+        <p>
+            We had a lot of good things that I appreciate,
+            and also difficult moments that we don't have to remember forever.
+        </p>
+
+        <p>
+            Maybe not every story is meant to last forever.
+            But that doesn't mean the story was meaningless.
+        </p>
+
+        <p>
+            And I don't want our story to end with us simply ghosting each other.
+        </p>
+
+        <p>
+            I will always respect the time we had together
+            and the person you were in my life.
+        </p>
+
+        <p>
+            You were someone I wanted to create more memories with,
+            but unexpectedly, things didn't work out the way I hoped.
+        </p>
+
+    </div>
+
+
+    <!-- GOODBYE -->
+
+    <div id="goodbye" class="section">
+
+        <h2>My Goodbye</h2>
+
+        <p>
+            I don't want to leave with anger.
+        </p>
+
+        <p>
+            I don't want to blame you or make you feel guilty.
+        </p>
+
+        <p>
+            I just want to say that what we had mattered to me.
+        </p>
+
+        <p>
+            Thank you for the good moments.
+            Thank you for the memories.
+            Thank you for the time we shared.
+        </p>
+
+        <p>
+            I understand that people change,
+            feelings change, and sometimes life takes people
+            in different directions.
+        </p>
+
+        <p>
+            I respect your choices,
+            even if they are difficult for me to accept.
+        </p>
+
+        <p>
+            I hope you find peace.
+            I hope you find happiness.
+            And I hope life is kind to you.
+        </p>
+
+        <p>
+            This isn't me asking you for anything.
+        </p>
+
+        <p>
+            It's just me saying goodbye
+            in the most respectful way I can.
         </p>
 
 
-        <div class="buttons">
+        <!-- MEMORY QUESTION -->
 
-            <button onclick="showSection('story')">
-                Our Story
-            </button>
+        <div class="question">
 
-            <button onclick="showSection('goodbye')">
-                My Goodbye
-            </button>
+            <h3>
+                Do you want to remember what we had?
+            </h3>
 
-        </div>
+            <div class="choice-buttons">
 
+                <button onclick="showMemory('yes')">
+                    Yes
+                </button>
 
-        <!-- OUR STORY -->
-
-        <div id="story" class="section">
-
-            <h2>What We Shared</h2>
-
-            <p>
-
-                Whatever happened between us, I don't want to remember
-                it only through the difficult moments.
-
-            </p>
-
-            <p>
-
-                We shared conversations, moments, laughter, and memories
-                that were once important to both of us.
-                WE had alot of good things that i appreciate and bad things that we not have to remember.
-
-            </p>
-
-            <p>
-
-                Maybe not every story is meant to last forever.
-                But that doesn't mean the story was meaningless.
-                And not that it will end in ghosting each other.
-
-            </p>
-
-            <p>
-
-                I will always respect the time we had together
-                and the person you were in my life.
-                You were a person that i wanted to have more memories with but unespected it dint workout.
-
-            </p>
-
-        </div>
-
-
-        <!-- GOODBYE -->
-
-        <div id="goodbye" class="section">
-
-            <h2>My Goodbye</h2>
-
-            <p>
-
-                I don't want to leave with anger.
-
-            </p>
-
-            <p>
-
-                I don't want to blame you or make you feel guilty.
-
-            </p>
-
-            <p>
-
-                I just want to say that what we had mattered to me.
-
-            </p>
-
-            <p>
-
-                Thank you for the good moments.
-                Thank you for the memories.
-                Thank you for the time we shared.
-
-            </p>
-
-            <p>
-
-                I understand that people change,
-                feelings change, and sometimes life takes people
-                in different directions.
-
-            </p>
-
-            <p>
-
-                I respect your choices,
-                even if they are difficult for me to accept.
-
-            </p>
-
-            <p>
-
-                I hope you find peace.
-                I hope you find happiness.
-                And I hope life is kind to you.
-
-            </p>
-
-            <p>
-
-                This isn't me asking you for anything.
-
-            </p>
-
-            <p>
-
-                It's just me saying goodbye
-                in the most respectful way I can.
-
-            </p>
-
-
-            <!-- MEMORY QUESTION -->
-
-            <div class="question">
-
-                <h3>
-                    Do you want to remember what we had?
-                </h3>
-
-                <div class="choice-buttons">
-
-                    <button onclick="showMemory('yes')">
-                        Yes
-                    </button>
-
-                    <button onclick="showMemory('no')">
-                        No
-                    </button>
-
-                </div>
-
-
-                <div id="memoryYes" class="response">
-
-                    <p>
-
-                        Then I hope you remember the good moments too.
-
-                    </p>
-
-                    <div class="date-box">
-
-                        <p>
-                            <strong>Our Beginning</strong>
-                        </p>
-
-                        <p>
-                            📅 12.September.2024
-                                                    <p>
-
-                            u started as my friend , been besties,and turned into parteners
-                        </p>
-                     </p>
-                    </div>
-
-                    <div class="date-box">
-
-                        <p>
-                            <strong>A Special Memory</strong>
-                        </p>
-
-                        <p>
-                            📅 14.March.2026
-                            <p>
-                            Tho uno munsi utawukunda gusa nge ndawukunda. my first valentine day and my happiest moment.
-                           <p> Nae andi matariki meza kuri woe yose arimo hano
-                            The shorm days  </p>
-                             📅 06.May.2026
-                         <p>
-                            The night nkunda cyane nawe urabizi
-                        </p></p>
-
-                    </div>
-
-                    <div class="date-box">
-
-                        <p>
-                            <strong>Another Moment</strong>
-                        </p>
-
-                        <p>
-                            📅 .March.2026
-                             <p>
-                            The date ntabw nyibuka gusa urawukunda uwo munsi nawo urimo hano.
-                            kandi ndabigushimira
-                        </p></p>
-
-                    </div>
-
-                    <p style="margin-top: 20px;">
-
-                        Whatever happens next,
-                        I will always appreciate that these moments
-                        were once a part of our lives.
-                        LOVE YOU BIG
-
-                    </p>
-
-                </div>
-
-
-                <div id="memoryNo" class="response">
-
-                    <p>
-
-                        I understand. but why wouldnt you want to remember ?
-                        please remember them .
-                        press the button
-                        <div id="memoryYes" class="response">
-
-                    </p>
-
-                    <p>
-
-                        You don't have to remember anything
-                        you don't want to.
-
-                    </p>
-
-                    <p>
-
-                        I respect your choice,
-                        and I won't hold that against you.
-
-                    </p>
-
-                </div>
+                <button onclick="showMemory('no')">
+                    No
+                </button>
 
             </div>
 
 
-            <!-- COMEBACK QUESTION -->
+            <!-- YES MEMORY RESPONSE -->
 
-           <!-- COMEBACK QUESTION -->
+            <div id="memoryYes" class="response">
 
-<div class="question">
+                <p>
+                    Then I hope you remember the good moments too.
+                </p>
 
-```
-<h3>
-    Do you want to come back?
-</h3>
+                <div class="date-box">
 
-<div class="choice-buttons">
+                    <p>
+                        <strong>Our Beginning</strong>
+                    </p>
 
-    <button onclick="showComeback('yes')">
-        Yes
-    </button>
+                    <p>
+                        📅 12 September 2024
+                    </p>
 
-    <button onclick="showComeback('no')">
-        No
-    </button>
+                    <p>
+                        You started as my friend, became my bestie,
+                        and eventually became my partner.
+                    </p>
+
+                </div>
+
+
+                <div class="date-box">
+
+                    <p>
+                        <strong>A Special Memory</strong>
+                    </p>
+
+                    <p>
+                        📅 14 March 2026
+                    </p>
+
+                    <p>
+                        Though you may not love that day,
+                        I do. It was my first Valentine's Day
+                        and one of my happiest moments.
+                    </p>
+
+                </div>
+
+
+                <div class="date-box">
+
+                    <p>
+                        <strong>Another Special Moment</strong>
+                    </p>
+
+                    <p>
+                        📅 06 May 2026
+                    </p>
+
+                    <p>
+                        The night I love so much.
+                        You know the one.
+                    </p>
+
+                </div>
+
+
+                <div class="date-box">
+
+                    <p>
+                        <strong>Another Memory</strong>
+                    </p>
+
+                    <p>
+                        📅 March 2026
+                    </p>
+
+                    <p>
+                        I don't remember the exact date,
+                        but you know the day I mean.
+                        I know you loved that day too,
+                        and I appreciate that memory.
+                    </p>
+
+                </div>
+
+
+                <p style="margin-top: 20px;">
+
+                    Whatever happens next,
+                    I will always appreciate that these moments
+                    were once a part of our lives.
+
+                    <br><br>
+
+                    LOVE YOU BIG.
+
+                </p>
+
+            </div>
+
+
+            <!-- NO MEMORY RESPONSE -->
+
+            <div id="memoryNo" class="response">
+
+                <p>
+                    I understand.
+                </p>
+
+                <p>
+                    You don't have to remember anything
+                    you don't want to.
+                </p>
+
+                <p>
+                    I respect your choice,
+                    and I won't hold that against you.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- COMEBACK QUESTION -->
+
+        <div class="question">
+
+            <h3>
+                Do you want to come back?
+            </h3>
+
+            <div class="choice-buttons">
+
+                <button onclick="showComeback('yes')">
+                    Yes
+                </button>
+
+                <button onclick="showComeback('no')">
+                    No
+                </button>
+
+            </div>
+
+
+            <!-- REASON TEXT BOX -->
+
+            <div id="reasonBox" class="reason-box">
+
+                <p>
+                    If you want to, you can tell me why you chose your answer.
+                </p>
+
+                <textarea
+                    id="reasonText"
+                    placeholder="Write your reason here..."
+                ></textarea>
+
+                <button onclick="submitReason()">
+                    Send My Answer
+                </button>
+
+                <p id="reasonSent" class="reason-sent"></p>
+
+            </div>
+
+
+            <!-- YES RESPONSE -->
+
+            <div id="comeBackYes" class="response">
+
+                <p>
+                    If you truly want to come back,
+                    I am still willing to talk.
+                </p>
+
+                <p>
+                    I am not expecting everything to become perfect
+                    immediately.
+                </p>
+
+                <p>
+                    But if you genuinely want to try again,
+                    I am here.
+                </p>
+
+                <p>
+                    I am waiting.
+                </p>
+
+            </div>
+
+
+            <!-- NO RESPONSE -->
+
+            <div id="comeBackNo" class="response">
+
+                <p>
+                    I understand.
+                </p>
+
+                <p>
+                    I may not like the answer,
+                    but I respect it.
+                </p>
+
+                <p>
+                    I won't force you to stay
+                    where you no longer want to be.
+                </p>
+
+                <p>
+                    I wish you the best,
+                    genuinely.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- SIGNATURE -->
+
+        <div class="signature">
+
+            Take care of yourself.
+            <br>
+
+            — From someone who truly cared
+
+        </div>
+
+    </div>
+
+
+    <footer>
+        Some goodbyes are not about forgetting.
+        Sometimes they are about appreciating what once was.
+    </footer>
 
 </div>
 
 
-<!-- REASON TEXT BOX -->
+<!-- JAVASCRIPT -->
 
-<div id="reasonBox" class="reason-box">
+<script>
 
-    <p>
-        If you want to, you can tell me why you chose your answer.
-    </p>
+    function showSection(sectionId) {
 
-    <textarea
-        id="reasonText"
-        placeholder="Write your reason here..."
-    ></textarea>
+        const sections = document.querySelectorAll(".section");
 
-    <button onclick="submitReason()">
-        Send My Answer
-    </button>
+        sections.forEach(function(section) {
+            section.style.display = "none";
+        });
 
-    <p id="reasonSent" class="reason-sent"></p>
+        const selectedSection = document.getElementById(sectionId);
 
-</div>
+        selectedSection.style.display = "block";
 
+        selectedSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
 
-<!-- YES RESPONSE -->
-
-<div id="comeBackYes" class="response">
-
-    <p>
-        If you truly want to come back,
-        I am still willing to talk.
-    </p>
-
-    <p>
-        I am not expecting everything to become perfect
-        immediately.
-    </p>
-
-    <p>
-        But if you genuinely want to try again,
-        I am here.
-    </p>
-
-    <p>
-        I am waiting.
-    </p>
-
-</div>
+    }
 
 
-<!-- NO RESPONSE -->
+    function showMemory(choice) {
 
-<div id="comeBackNo" class="response">
+        document.getElementById("memoryYes").style.display = "none";
 
-    <p>
-        I understand.
-    </p>
+        document.getElementById("memoryNo").style.display = "none";
 
-    <p>
-        I may not like the answer,
-        but I respect it.
-    </p>
+        if (choice === "yes") {
 
-    <p>
-        I won't force you to stay
-        where you no longer want to be.
-    </p>
+            document.getElementById("memoryYes").style.display = "block";
 
-    <p>
-        I wish you the best,
-        genuinely.
-    </p>
+        } else {
 
-</div>
-
-
-<div class="signature">
-
-    Take care of yourself.<br>
-
-    — From someone who truly cared
-
-</div>
-```
-
-</div>
+            document.getElementById("memoryNo").style.display = "block";
 
         }
 
-    </script>
+    }
+
+
+    function showComeback(choice) {
+
+        document.getElementById("comeBackYes").style.display = "none";
+
+        document.getElementById("comeBackNo").style.display = "none";
+
+        document.getElementById("reasonBox").style.display = "block";
+
+        if (choice === "yes") {
+
+            document.getElementById("comeBackYes").style.display = "block";
+
+        } else {
+
+            document.getElementById("comeBackNo").style.display = "block";
+
+        }
+
+    }
+
+
+    function submitReason() {
+
+        const reason = document.getElementById("reasonText").value.trim();
+
+        const reasonSent = document.getElementById("reasonSent");
+
+
+        if (reason === "") {
+
+            reasonSent.textContent = "You can write something first if you want to.";
+
+        } else {
+
+            reasonSent.textContent =
+                "Thank you for being honest and sharing your reason.";
+
+        }
+
+    }
+
+</script>
+```
 
 </body>
 

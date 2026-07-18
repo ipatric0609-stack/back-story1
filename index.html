@@ -511,190 +511,112 @@
 
             <!-- COMEBACK QUESTION -->
 
-            <div class="question">
+           <!-- COMEBACK QUESTION -->
 
-                <h3>
-                   if you make your mind back?
-                </h3>
+<div class="question">
 
-                <div class="choice-buttons">
+```
+<h3>
+    Do you want to come back?
+</h3>
 
-                    <button onclick="showComeback('yes')">
-                        Yes
-                    </button>
+<div class="choice-buttons">
 
-                    <button onclick="showComeback('no')">
-                        No
-                    </button>
+    <button onclick="showComeback('yes')">
+        Yes
+    </button>
 
-                </div>
+    <button onclick="showComeback('no')">
+        No
+    </button>
 
+</div>
 
-                <div id="comeBackYes" class="response">
 
-                    <p>
+<!-- REASON TEXT BOX -->
 
-                        If you truly want to come back,
-                        I am still willing to talk.
+<div id="reasonBox" class="reason-box">
 
-                    </p>
+    <p>
+        If you want to, you can tell me why you chose your answer.
+    </p>
 
-                    <p>
+    <textarea
+        id="reasonText"
+        placeholder="Write your reason here..."
+    ></textarea>
 
-                        I am not expecting everything to become perfect
-                        immediately.
+    <button onclick="submitReason()">
+        Send My Answer
+    </button>
 
-                    </p>
+    <p id="reasonSent" class="reason-sent"></p>
 
-                    <p>
+</div>
 
-                        But if you genuinely want to try again,
-                        I am here.
 
-                    </p>
+<!-- YES RESPONSE -->
 
-                    <p>
+<div id="comeBackYes" class="response">
 
-                        I am waiting.
+    <p>
+        If you truly want to come back,
+        I am still willing to talk.
+    </p>
 
-                    </p>
+    <p>
+        I am not expecting everything to become perfect
+        immediately.
+    </p>
 
-                </div>
+    <p>
+        But if you genuinely want to try again,
+        I am here.
+    </p>
 
+    <p>
+        I am waiting.
+    </p>
 
-                <div id="comeBackNo" class="response">
+</div>
 
-                    <p>
 
-                        I understand.
+<!-- NO RESPONSE -->
 
-                    </p>
+<div id="comeBackNo" class="response">
 
-                    <p>
+    <p>
+        I understand.
+    </p>
 
-                        I may not like the answer,
-                        but I respect it.
+    <p>
+        I may not like the answer,
+        but I respect it.
+    </p>
 
-                    </p>
+    <p>
+        I won't force you to stay
+        where you no longer want to be.
+    </p>
 
-                    <p>
+    <p>
+        I wish you the best,
+        genuinely.
+    </p>
 
-                        I won't force you to stay
-                        where you no longer want to be.
+</div>
 
-                    </p>
 
-                    <p>
+<div class="signature">
 
-                        I wish you the best,
-                        genuinely.
+    Take care of yourself.<br>
 
-                    </p>
+    — From someone who truly cared
 
-                </div>
+</div>
+```
 
-            </div>
-
-
-            <div class="signature">
-
-                Take care of yourself babbyyy.<br>
-
-                — From someone who truly cared
-                ZIRIWA          ZiEm
-
-            </div>
-
-        </div>
-
-
-        <footer>
-
-            Some chapters end quietly.
-            That doesn't mean they were meaningless.
-
-        </footer>
-
-    </div>
-
-
-    <script>
-
-        function showSection(sectionId) {
-
-            const sections =
-                document.querySelectorAll(".section");
-
-            sections.forEach(section => {
-
-                section.style.display = "none";
-
-            });
-
-            const selectedSection =
-                document.getElementById(sectionId);
-
-            selectedSection.style.display = "block";
-
-            selectedSection.scrollIntoView({
-
-                behavior: "smooth",
-
-                block: "center"
-
-            });
-
-        }
-
-
-        function showMemory(answer) {
-
-            document.getElementById("memoryYes")
-                .style.display = "none";
-
-            document.getElementById("memoryNo")
-                .style.display = "none";
-
-
-            if (answer === "yes") {
-
-                document.getElementById("memoryYes")
-                    .style.display = "block";
-
-            }
-
-            else {
-
-                document.getElementById("memoryNo")
-                    .style.display = "block";
-
-            }
-
-        }
-
-
-        function showComeback(answer) {
-
-            document.getElementById("comeBackYes")
-                .style.display = "none";
-
-            document.getElementById("comeBackNo")
-                .style.display = "none";
-
-
-            if (answer === "yes") {
-
-                document.getElementById("comeBackYes")
-                    .style.display = "block";
-
-            }
-
-            else {
-
-                document.getElementById("comeBackNo")
-                    .style.display = "block";
-
-            }
+</div>
 
         }
 
